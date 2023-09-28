@@ -148,7 +148,7 @@ class alienrain_app : public sb7::application
         glGenVertexArrays(1, &render_vao);
         glBindVertexArray(render_vao);
 
-        tex_alien_array = sb7::ktx::file::load("media/textures/aliens.ktx");
+        tex_alien_array = sb7::ktx::file::load("../bin/media/textures/aliens.ktx");
         glBindTexture(GL_TEXTURE_2D_ARRAY, tex_alien_array);
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
