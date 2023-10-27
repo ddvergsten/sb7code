@@ -41,6 +41,7 @@ static const float data2[] = {
 
 class singlepoint_app : public sb7::application
 {
+    int numPoints = 0;
     void init()
     {
         static const char title[] = "OpenGL SuperBible - Single Triangle";
@@ -48,6 +49,8 @@ class singlepoint_app : public sb7::application
         sb7::application::init();
 
         memcpy(info.title, title, sizeof(title));
+        numPoints = sizeof(data) / 16;
+        std::cout << "data size " << numPoints << std::endl;
     }
 
     virtual void startup()
@@ -62,6 +65,10 @@ class singlepoint_app : public sb7::application
             "   vec4 data_SSBO[3];                                                \n"
             "} vertices2;                                                                 \n"
 
+            "layout(std430, binding = 4) buffer VertexIDs                       \n"
+            "{                                                                  \n"
+            "   uint ids[];                                                     \n"
+            "}vertex_ids;                                                                  \n" 
 
             "                                                                  \n"
             //have to add some vars here for the vertices that will come from buffer
@@ -82,7 +89,7 @@ class singlepoint_app : public sb7::application
             "                                   vec4(0.0, 1.0, 0.0, 1.0),       \n"
             "                                   vec4(0.0, 0.0, 1.0, 1.0));      \n"
 
-            // 
+            "   vertex_ids.ids[gl_VertexID] = gl_VertexID;                      \n"
              "   gl_Position = vertices2.data_SSBO[gl_VertexID];//position;//vertices[gl_VertexID];//position;                                        \n"//mvMatrix * vertices[gl_VertexID];                 \n"
              "   vs_color = colors[gl_VertexID];                                          \n"//gl_VertexID % 3];                                 \n"
              "}                                                                 \n"
@@ -175,7 +182,10 @@ class singlepoint_app : public sb7::application
         glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 3, ssbo);
         glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0); // unbind
 
-
+        //create a storage buffer that we can read from the shaders input
+        glCreateBuffers(1, &vertex_id_buffer);
+        glBindBuffer(GL_SHADER_STORAGE_BUFFER, vertex_id_buffer);
+        glBufferData(GL_SHADER_STORAGE_BUFFER, numPoints * sizeof(GLuint), NULL, GL_DYNAMIC_COPY);
         //we now wanna create a buffer, allocate to about 1 meg, 
         //set target as GLARRAYBUFFER.
         glCreateBuffers(1, &buffer);
@@ -190,6 +200,7 @@ class singlepoint_app : public sb7::application
         glEnableVertexArrayAttrib(vao, 0);
     }
     GLuint ssbo;
+    GLuint vertex_id_buffer;
     GLuint buffer;
     double movex = 0.00;
     bool moveright = true;
@@ -201,11 +212,22 @@ class singlepoint_app : public sb7::application
         glBindBuffer(GL_ARRAY_BUFFER, buffer);
         glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 3, ssbo);
        
+        glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 4, vertex_id_buffer);
         static const GLfloat green[] = { 0.0f, 0.25f, 0.0f, 1.0f };
         glClearBufferfv(GL_COLOR, 0, green);
 
 
         glDrawArrays(GL_TRIANGLES, 0, 3);
+
+        GLuint* ids = (GLuint*)glMapBufferRange(GL_SHADER_STORAGE_BUFFER, 0, numPoints * sizeof(GLuint), GL_MAP_READ_BIT);
+        
+        for (int i = 0; i < numPoints; ++i)
+        {
+            int val = ids[i];
+            std::cout << val << ", ";
+        }
+        
+        glUnmapBuffer(GL_SHADER_STORAGE_BUFFER);
     }
 
     virtual void shutdown()
