@@ -158,7 +158,7 @@ class singlepoint_app : public sb7::application
         vmath::vec3 view_position = vmath::vec3(movex, 0.0, 0.55f);
         vmath::mat4 view_matrix = vmath::lookat(view_position,
             vmath::vec3(0.0, 0.0f, 0.5f),
-            vmath::vec3(0.7f, 0.7f, 0.0f));
+            vmath::vec3(0.0f, 1.0f, 0.0f));
         vmath::mat4 view_matrixUnit;
         
         view_matrixUnit = view_matrixUnit.identity();

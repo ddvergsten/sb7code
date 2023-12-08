@@ -5,4 +5,4 @@ C:\Users\DvergstenDavid\Documents\openglsuperbiblecodeFork\sb7code\src\DDListing
           [
               T=float
           ]
-LINK : fatal error LNK1104: cannot open file 'sb7_d.lib'
+  DDListing3-10.vcxproj -> C:\Users\DvergstenDavid\Documents\openglsuperbiblecodeFork\sb7code\build\x64\Debug\DDListing3-10.exe

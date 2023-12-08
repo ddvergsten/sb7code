@@ -211,7 +211,6 @@ class singlepoint_app : public sb7::application
         glUseProgram(program);
         glBindBuffer(GL_ARRAY_BUFFER, buffer);
         glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 3, ssbo);
-       
         glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 4, vertex_id_buffer);
         static const GLfloat green[] = { 0.0f, 0.25f, 0.0f, 1.0f };
         glClearBufferfv(GL_COLOR, 0, green);
@@ -219,6 +218,7 @@ class singlepoint_app : public sb7::application
 
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
+        //this is reading off the buffer that is bound last, in this case vertex_id_buffer at offset 4 in the shader
         GLuint* ids = (GLuint*)glMapBufferRange(GL_SHADER_STORAGE_BUFFER, 0, numPoints * sizeof(GLuint), GL_MAP_READ_BIT);
         
         for (int i = 0; i < numPoints; ++i)
