@@ -1,3 +1,11 @@
 bin/
 build/
 *.txt.user
+*.obj
+*.log
+*.tlog
+*.idb
+*.pdb
+*.recipe
+*.ilk
+
