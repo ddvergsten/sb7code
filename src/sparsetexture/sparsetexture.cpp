@@ -124,7 +124,7 @@ void sparsetexture_app::startup()
 
     texture_data = new unsigned char [PAGE_SIZE * PAGE_SIZE * 4];
 
-    f = fopen("media/textures/smiley.raw", "rb");
+    f = fopen("../bin/media/textures/smiley.raw", "rb");
     fread(texture_data, 128 * 128 * 4, 1, f);
     fclose(f);
 }
@@ -198,8 +198,8 @@ void sparsetexture_app::load_shaders()
 {
     GLuint shaders[2];
 
-    shaders[0] = sb7::shader::load("media/shaders/sparsetexture/render.vs.glsl", GL_VERTEX_SHADER);
-    shaders[1] = sb7::shader::load("media/shaders/sparsetexture/render.fs.glsl", GL_FRAGMENT_SHADER);
+    shaders[0] = sb7::shader::load("../bin/media/shaders/sparsetexture/render.vs.glsl", GL_VERTEX_SHADER);
+    shaders[1] = sb7::shader::load("../bin/media/shaders/sparsetexture/render.fs.glsl", GL_FRAGMENT_SHADER);
 
     program = sb7::program::link_from_shaders(shaders, 2, true);
 }

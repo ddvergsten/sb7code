@@ -152,7 +152,7 @@ void prefixsum_app::onKey(int key, int action)
 
 void prefixsum_app::load_shaders()
 {
-    GLuint cs = sb7::shader::load("media/shaders/prefixsum/prefixsum.cs.glsl", GL_COMPUTE_SHADER);
+    GLuint cs = sb7::shader::load("../bin/media/shaders/prefixsum/prefixsum.cs.glsl", GL_COMPUTE_SHADER);
 
     if (prefix_sum_prog)
         glDeleteProgram(prefix_sum_prog);

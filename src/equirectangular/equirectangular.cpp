@@ -48,12 +48,12 @@ protected:
 
     virtual void startup()
     {
-        envmaps[0] = sb7::ktx::file::load("media/textures/envmaps/equirectangularmap1.ktx");
+        envmaps[0] = sb7::ktx::file::load("../bin/media/textures/envmaps/equirectangularmap1.ktx");
         tex_envmap = envmaps[envmap_index];
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-        object.load("media/objects/dragon.sbm");
+        object.load("../bin/media/objects/dragon.sbm");
 
         load_shaders();
 
@@ -98,8 +98,8 @@ protected:
             glDeleteProgram(render_prog);
             GLuint vs, fs;
 
-        vs = sb7::shader::load("media/shaders/equirectangular/render.vs.glsl", GL_VERTEX_SHADER);
-        fs = sb7::shader::load("media/shaders/equirectangular/render.fs.glsl", GL_FRAGMENT_SHADER);
+        vs = sb7::shader::load("../bin/media/shaders/equirectangular/render.vs.glsl", GL_VERTEX_SHADER);
+        fs = sb7::shader::load("../bin/media/shaders/equirectangular/render.fs.glsl", GL_FRAGMENT_SHADER);
 
         render_prog = glCreateProgram();
         glAttachShader(render_prog, vs);

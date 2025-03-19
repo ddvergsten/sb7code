@@ -100,7 +100,7 @@ class sb6mrender_app : public sb7::application
         proj_location = glGetUniformLocation(program, "proj_matrix");
         explode_factor_location = glGetUniformLocation(program, "explode_factor");
 
-        object.load("media/objects/dragon.sbm");
+        object.load("../bin/media/objects/dragon.sbm");
 
         glEnable(GL_CULL_FACE);
 

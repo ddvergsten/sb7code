@@ -48,12 +48,12 @@ protected:
 
     virtual void startup()
     {
-        envmaps[0] = sb7::ktx::file::load("media/textures/envmaps/spheremap1.ktx");
-        envmaps[1] = sb7::ktx::file::load("media/textures/envmaps/spheremap2.ktx");
-        envmaps[2] = sb7::ktx::file::load("media/textures/envmaps/spheremap3.ktx");
+        envmaps[0] = sb7::ktx::file::load("../bin/media/textures/envmaps/spheremap1.ktx");
+        envmaps[1] = sb7::ktx::file::load("../bin/media/textures/envmaps/spheremap2.ktx");
+        envmaps[2] = sb7::ktx::file::load("../bin/media/textures/envmaps/spheremap3.ktx");
         tex_envmap = envmaps[envmap_index];
 
-        object.load("media/objects/dragon.sbm");
+        object.load("../bin/media/objects/dragon.sbm");
 
         load_shaders();
 
@@ -99,8 +99,8 @@ protected:
 
         GLuint vs, fs;
 
-        vs = sb7::shader::load("media/shaders/envmapsphere/render.vs.glsl", GL_VERTEX_SHADER);
-        fs = sb7::shader::load("media/shaders/envmapsphere/render.fs.glsl", GL_FRAGMENT_SHADER);
+        vs = sb7::shader::load("../bin/media/shaders/envmapsphere/render.vs.glsl", GL_VERTEX_SHADER);
+        fs = sb7::shader::load("../bin/media/shaders/envmapsphere/render.fs.glsl", GL_FRAGMENT_SHADER);
 
         render_prog = glCreateProgram();
         glAttachShader(render_prog, vs);

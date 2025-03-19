@@ -1,8 +1,0 @@
-﻿  main.cpp
-C:\Users\DvergstenDavid\Documents\openglsuperbiblecodeFork\sb7code\include\vmath.h(1022,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\DvergstenDavid\Documents\openglsuperbiblecodeFork\sb7code\src\DDListing3-10\main.cpp(158,49): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-  DDListing3-10.vcxproj -> C:\Users\DvergstenDavid\Documents\openglsuperbiblecodeFork\sb7code\build\x64\Debug\DDListing3-10.exe

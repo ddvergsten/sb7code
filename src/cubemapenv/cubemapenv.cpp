@@ -49,15 +49,15 @@ protected:
 
     virtual void startup()
     {
-        envmaps[0] = sb7::ktx::file::load("media/textures/envmaps/mountaincube.ktx");
+        envmaps[0] = sb7::ktx::file::load("../bin/media/textures/envmaps/mountaincube.ktx");
         tex_envmap = envmaps[envmap_index];
-
+        
         glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
         glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 
-        object.load("media/objects/dragon.sbm");
+        object.load("../bin/media/objects/dragon.sbm");
 
         load_shaders();
 
@@ -120,8 +120,8 @@ protected:
 
         GLuint vs, fs;
 
-        vs = sb7::shader::load("media/shaders/cubemapenv/render.vs.glsl", GL_VERTEX_SHADER);
-        fs = sb7::shader::load("media/shaders/cubemapenv/render.fs.glsl", GL_FRAGMENT_SHADER);
+        vs = sb7::shader::load("../bin/media/shaders/cubemapenv/render.vs.glsl", GL_VERTEX_SHADER);
+        fs = sb7::shader::load("../bin/media/shaders/cubemapenv/render.fs.glsl", GL_FRAGMENT_SHADER);
 
         render_prog = glCreateProgram();
         glAttachShader(render_prog, vs);
@@ -134,8 +134,8 @@ protected:
         uniforms.render.mv_matrix = glGetUniformLocation(render_prog, "mv_matrix");
         uniforms.render.proj_matrix = glGetUniformLocation(render_prog, "proj_matrix");
 
-        vs = sb7::shader::load("media/shaders/cubemapenv/skybox.vs.glsl", GL_VERTEX_SHADER);
-        fs = sb7::shader::load("media/shaders/cubemapenv/skybox.fs.glsl", GL_FRAGMENT_SHADER);
+        vs = sb7::shader::load("../bin/media/shaders/cubemapenv/skybox.vs.glsl", GL_VERTEX_SHADER);
+        fs = sb7::shader::load("../bin/media/shaders/cubemapenv/skybox.fs.glsl", GL_FRAGMENT_SHADER);
 
         skybox_prog = glCreateProgram();
         glAttachShader(skybox_prog, vs);

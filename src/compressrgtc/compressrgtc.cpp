@@ -79,9 +79,9 @@ void rgtccompressor::init()
 
 void rgtccompressor::startup()
 {
-    // input_texture = sb7::ktx::file::load("media/textures/sdftexture.ktx");
-    // input_texture = sb7::ktx::file::load("media/textures/frog_eye_magnified_linear.ktx");
-    input_texture = sb7::ktx::file::load("media/textures/gllogodistsm.ktx");
+    // input_texture = sb7::ktx::file::load("../bin/media/textures/sdftexture.ktx");
+    // input_texture = sb7::ktx::file::load("../bin/media/textures/frog_eye_magnified_linear.ktx");
+    input_texture = sb7::ktx::file::load("../bin/media/textures/gllogodistsm.ktx");
 
     glGenTextures(1, &output_texture);
     glBindTexture(GL_TEXTURE_2D, output_texture);
@@ -172,14 +172,14 @@ void rgtccompressor::load_shaders()
 
     GLuint cs;
 
-    cs = sb7::shader::load("media/shaders/rgtc/rgtccompress.cs.glsl", GL_COMPUTE_SHADER);
+    cs = sb7::shader::load("../bin/media/shaders/rgtc/rgtccompress.cs.glsl", GL_COMPUTE_SHADER);
 
     compress_program = sb7::program::link_from_shaders(&cs, 1, true);
 
     GLuint shaders[2];
 
-    shaders[0] = sb7::shader::load("media/shaders/rgtc/drawquad.fs.glsl", GL_FRAGMENT_SHADER);
-    shaders[1] = sb7::shader::load("media/shaders/rgtc/drawquad.vs.glsl", GL_VERTEX_SHADER);
+    shaders[0] = sb7::shader::load("../bin/media/shaders/rgtc/drawquad.fs.glsl", GL_FRAGMENT_SHADER);
+    shaders[1] = sb7::shader::load("../bin/media/shaders/rgtc/drawquad.vs.glsl", GL_VERTEX_SHADER);
 
     render_program = sb7::program::link_from_shaders(shaders, 2, true);
 }

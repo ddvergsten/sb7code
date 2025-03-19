@@ -89,7 +89,7 @@ public:
         glGenTextures(1, &texture);
 
         // Load texture from file
-        sb7::ktx::file::load("media/textures/tree.ktx", texture);
+        sb7::ktx::file::load("../bin/media/textures/tree.ktx", texture);
 
         // Now bind it to the context using the GL_TEXTURE_2D binding point
         glBindTexture(GL_TEXTURE_2D, texture);

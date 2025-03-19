@@ -161,7 +161,7 @@ void bindlesstex_app::startup()
 
     load_shaders();
     
-    object.load("media/objects/torus_nrms_tc.sbm");
+    object.load("../bin/media/objects/torus_nrms_tc.sbm");
 }
 
 void bindlesstex_app::render(double currentTime)
@@ -234,8 +234,8 @@ void bindlesstex_app::load_shaders()
 {
     GLuint shaders[2];
 
-    shaders[0] = sb7::shader::load("media/shaders/bindlesstex/render.vs.glsl", GL_VERTEX_SHADER);
-    shaders[1] = sb7::shader::load("media/shaders/bindlesstex/render.fs.glsl", GL_FRAGMENT_SHADER);
+    shaders[0] = sb7::shader::load("../bin/media/shaders/bindlesstex/render.vs.glsl", GL_VERTEX_SHADER);
+    shaders[1] = sb7::shader::load("../bin/media/shaders/bindlesstex/render.fs.glsl", GL_FRAGMENT_SHADER);
 
     program = sb7::program::link_from_shaders(shaders, 2, true);
 }

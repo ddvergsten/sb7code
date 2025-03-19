@@ -1,3 +1,0 @@
-﻿  main.cpp
-C:\Users\DvergstenDavid\Documents\openglsuperbiblecodeFork\sb7code\include\vmath.h(1022,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  DDShaderStorageBlock.vcxproj -> C:\Users\DvergstenDavid\Documents\openglsuperbiblecodeFork\sb7code\build\x64\Debug\DDShaderStorageBlock.exe

@@ -116,7 +116,7 @@ void cullindirect_app::startup()
 {
     GLuint first, count;
 
-    object.load("media/objects/asteroids.sbm");
+    object.load("../bin/media/objects/asteroids.sbm");
 
     glGenBuffers(1, &buffers.parameters);
     glBindBuffer(GL_PARAMETER_BUFFER_ARB, buffers.parameters);
@@ -158,20 +158,20 @@ void cullindirect_app::startup()
 
     overlay.init(128, 50);
 
-    texture = sb7::ktx::file::load("media/textures/rocks.ktx");
+    texture = sb7::ktx::file::load("../bin/media/textures/rocks.ktx");
 }
 
 void cullindirect_app::load_shaders()
 {
     GLuint shaders[2];
 
-    shaders[0] = sb7::shader::load("media/shaders/cullindirect/cull.cs.glsl", GL_COMPUTE_SHADER);
+    shaders[0] = sb7::shader::load("../bin/media/shaders/cullindirect/cull.cs.glsl", GL_COMPUTE_SHADER);
 
     glDeleteProgram(programs.cull);
     programs.cull = sb7::program::link_from_shaders(shaders, 1, true);
 
-    shaders[0] = sb7::shader::load("media/shaders/cullindirect/render.vs.glsl", GL_VERTEX_SHADER);
-    shaders[1] = sb7::shader::load("media/shaders/cullindirect/render.fs.glsl", GL_FRAGMENT_SHADER);
+    shaders[0] = sb7::shader::load("../bin/media/shaders/cullindirect/render.vs.glsl", GL_VERTEX_SHADER);
+    shaders[1] = sb7::shader::load("../bin/media/shaders/cullindirect/render.fs.glsl", GL_FRAGMENT_SHADER);
 
     glDeleteProgram(programs.draw);
     programs.draw = sb7::program::link_from_shaders(shaders, 2, true);

@@ -161,6 +161,8 @@ class singlepoint_app : public sb7::application
             //OutputDebugString(str.c_str());
 
         }
+        glVertexArrayVertexBuffer(vao, 0, buffer, 0, 4 * sizeof(float));
+        glEnableVertexArrayAttrib(vao, 0);
         //we now wanna create a buffer, allocate to about 1 meg, 
         //set target as GLARRAYBUFFER.
         glCreateBuffers(1, &buffer);
@@ -168,8 +170,8 @@ class singlepoint_app : public sb7::application
         glBindBuffer(GL_ARRAY_BUFFER, buffer);
 
         glBufferSubData(GL_ARRAY_BUFFER,
-            0, 4 * 3 * sizeof(float), data2);
-       void* ptr2 = glMapNamedBufferRange(buffer, 4 * 3 * sizeof(float), 4 * 3 * sizeof(float), GL_MAP_WRITE_BIT);
+            0, 4 * 6 * sizeof(float), data2);
+       void* ptr2 = glMapNamedBufferRange(buffer, 4*3*sizeof(float), 4 * 3 * sizeof(float), GL_MAP_WRITE_BIT);
         memcpy(ptr2, data, sizeof(data));
         glUnmapNamedBuffer(GL_ARRAY_BUFFER);
 
@@ -186,11 +188,11 @@ class singlepoint_app : public sb7::application
         glUseProgram(program);
         glBindBuffer(GL_ARRAY_BUFFER, buffer);
 
-       // int vertexCoordLoc = glGetAttribLocation(program, "position");
+        int vertexCoordLoc = glGetAttribLocation(program, "position");
        // int textureCoordLoc = glGetAttribLocationRIT(program, "a_texcoord");
 
-        //glVertexAttribPointer(vertexCoordLoc, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(0 * sizeof(GLfloat)));
-        //glEnableVertexAttribArray(vertexCoordLoc);
+        glVertexAttribPointer(vertexCoordLoc, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(0 * sizeof(GLfloat)));
+        glEnableVertexAttribArray(vertexCoordLoc);
 
         /*glVertexAttribPointerRIT(textureCoordLoc, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(GLfloat)));
         glEnableVertexAttribArrayRIT(textureCoordLoc);*/
@@ -222,7 +224,7 @@ class singlepoint_app : public sb7::application
         glClearBufferfv(GL_COLOR, 0, green);
 
 
-        glDrawArrays(GL_TRIANGLES, 0, 6);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
     }
 
     virtual void shutdown()

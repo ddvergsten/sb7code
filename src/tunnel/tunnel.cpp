@@ -112,9 +112,9 @@ class tunnel_app : public sb7::application
         glGenVertexArrays(1, &render_vao);
         glBindVertexArray(render_vao);
 
-        tex_wall = sb7::ktx::file::load("media/textures/brick.ktx");
-        tex_ceiling = sb7::ktx::file::load("media/textures/ceiling.ktx");
-        tex_floor = sb7::ktx::file::load("media/textures/floor.ktx");
+        tex_wall = sb7::ktx::file::load("../bin/media/textures/brick.ktx");
+        tex_ceiling = sb7::ktx::file::load("../bin/media/textures/ceiling.ktx");
+        tex_floor = sb7::ktx::file::load("../bin/media/textures/floor.ktx");
 
         int i;
         GLuint textures[] = { tex_floor, tex_wall, tex_ceiling };

@@ -66,7 +66,7 @@ void cubicfilter_app::startup()
     glGenVertexArrays(1, &dummy_vao);
     glBindVertexArray(dummy_vao);
 
-    source_tex = sb7::ktx::file::load("media/textures/baboon.ktx");
+    source_tex = sb7::ktx::file::load("../bin/media/textures/baboon.ktx");
 }
 
 void cubicfilter_app::render(double currentTime)
@@ -104,8 +104,8 @@ void cubicfilter_app::load_shaders()
     if (draw_tex_program)
         glDeleteProgram(draw_tex_program);
 
-    shaders[0] = sb7::shader::load("media/shaders/hqfilter/hqfilter.vs.glsl", GL_VERTEX_SHADER);
-    shaders[1] = sb7::shader::load("media/shaders/hqfilter/hqfilter.fs.glsl", GL_FRAGMENT_SHADER);
+    shaders[0] = sb7::shader::load("../bin/media/shaders/hqfilter/hqfilter.vs.glsl", GL_VERTEX_SHADER);
+    shaders[1] = sb7::shader::load("../bin/media/shaders/hqfilter/hqfilter.fs.glsl", GL_FRAGMENT_SHADER);
 
     draw_tex_program = sb7::program::link_from_shaders(shaders, 2, true);
 }

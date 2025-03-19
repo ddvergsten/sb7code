@@ -108,8 +108,8 @@ void pmbfractal_app::startup()
 
     GLuint shaders[2] =
     {
-        sb7::shader::load("media/shaders/fsq/fsq.vs.glsl", GL_VERTEX_SHADER),
-        sb7::shader::load("media/shaders/fsq/fsq.fs.glsl", GL_FRAGMENT_SHADER)
+        sb7::shader::load("../bin/media/shaders/fsq/fsq.vs.glsl", GL_VERTEX_SHADER),
+        sb7::shader::load("../bin/media/shaders/fsq/fsq.fs.glsl", GL_FRAGMENT_SHADER)
     };
 
     program = sb7::program::link_from_shaders(shaders, 2, true);

@@ -156,7 +156,7 @@ class gsculling_app : public sb7::application
         mvp_location = glGetUniformLocation(program, "mvpMatrix");
         viewpoint_location = glGetUniformLocation(program, "viewpoint");
 
-        object.load("media/objects/dragon.sbm");
+        object.load("../bin/media/objects/dragon.sbm");
 
         glDisable(GL_CULL_FACE);
 

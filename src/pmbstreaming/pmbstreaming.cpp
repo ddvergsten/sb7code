@@ -110,20 +110,20 @@ void pmbstreaming_app::startup()
 
     GLuint shaders[2] =
     {
-        sb7::shader::load("media/shaders/pmbstreaming/pmbstreaming.vs.glsl", GL_VERTEX_SHADER),
-        sb7::shader::load("media/shaders/pmbstreaming/pmbstreaming.fs.glsl", GL_FRAGMENT_SHADER)
+        sb7::shader::load("../bin/media/shaders/pmbstreaming/pmbstreaming.vs.glsl", GL_VERTEX_SHADER),
+        sb7::shader::load("../bin/media/shaders/pmbstreaming/pmbstreaming.fs.glsl", GL_FRAGMENT_SHADER)
     };
 
     program = sb7::program::link_from_shaders(shaders, 2, true);
 
-    object.load("media/objects/torus_nrms_tc.sbm");
+    object.load("../bin/media/objects/torus_nrms_tc.sbm");
 
     glBindBufferBase(GL_UNIFORM_BUFFER, 0, buffer);
 
     overlay.init(128, 50);
 
     glActiveTexture(GL_TEXTURE0);
-    texture = sb7::ktx::file::load("media/textures/pattern1.ktx");
+    texture = sb7::ktx::file::load("../bin/media/textures/pattern1.ktx");
 
     for (int i = 0; i < CHUNK_COUNT; i++)
     {

@@ -44,8 +44,8 @@ class fontdemo_app : public sb7::application
         static const char string2[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*();:<>,./?~`'\"";
         static const char string3[] = "The quick brown fox jumped over the lazy dog.";
 
-        // _text_overlay.init(48, 32, "media/textures/font16x16.ktx");
-        text_overlay.init(64, 32, "media/textures/cp437_9x16.ktx");
+        // _text_overlay.init(48, 32, "../bin/media/textures/font16x16.ktx");
+        text_overlay.init(64, 32, "../bin/media/textures/cp437_9x16.ktx");
         text_overlay.clear();
         text_overlay.print("This is a demo of bitmap font rendering.\n\n"
                            "This was printed as one string with newlines.\n\n"

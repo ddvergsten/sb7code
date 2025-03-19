@@ -47,12 +47,12 @@ public:
 
     void startup()
     {
-        logo_texture = sb7::ktx::file::load("media/textures/gllogodistsmarray.ktx");
+        logo_texture = sb7::ktx::file::load("../bin/media/textures/gllogodistsmarray.ktx");
         glBindTexture(GL_TEXTURE_2D_ARRAY, sdf_texture);
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
-        sdf_texture = sb7::ktx::file::load("media/textures/chars-df-array.ktx");
+        sdf_texture = sb7::ktx::file::load("../bin/media/textures/chars-df-array.ktx");
         glBindTexture(GL_TEXTURE_2D_ARRAY, sdf_texture);
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
@@ -148,8 +148,8 @@ public:
             GLuint          shaders[2];
         } shader;
 
-        shader.vs = sb7::shader::load("media/shaders/sdfdemo/sdf.vs.glsl", GL_VERTEX_SHADER);
-        shader.fs = sb7::shader::load("media/shaders/sdfdemo/sdf.fs.glsl", GL_FRAGMENT_SHADER);
+        shader.vs = sb7::shader::load("../bin/media/shaders/sdfdemo/sdf.vs.glsl", GL_VERTEX_SHADER);
+        shader.fs = sb7::shader::load("../bin/media/shaders/sdfdemo/sdf.fs.glsl", GL_FRAGMENT_SHADER);
 
         sdf_program = sb7::program::link_from_shaders(shader.shaders, 2, true);
 

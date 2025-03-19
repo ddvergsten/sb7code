@@ -47,9 +47,9 @@ public:
 
     void startup()
     {
-        map_texture = sb7::ktx::file::load("media/textures/psycho-map-df-sm.ktx");
-        grass_texture = sb7::ktx::file::load("media/textures/mossygrass.ktx");
-        rocks_texture = sb7::ktx::file::load("media/textures/rocks.ktx");
+        map_texture = sb7::ktx::file::load("../bin/media/textures/psycho-map-df-sm.ktx");
+        grass_texture = sb7::ktx::file::load("../bin/media/textures/mossygrass.ktx");
+        rocks_texture = sb7::ktx::file::load("../bin/media/textures/rocks.ktx");
 
         glBindTexture(GL_TEXTURE_2D, map_texture);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -135,8 +135,8 @@ public:
             GLuint          shaders[2];
         } shader;
 
-        shader.vs = sb7::shader::load("media/shaders/dflandscape/dflandscape.vs.glsl", GL_VERTEX_SHADER);
-        shader.fs = sb7::shader::load("media/shaders/dflandscape/dflandscape.fs.glsl", GL_FRAGMENT_SHADER);
+        shader.vs = sb7::shader::load("../bin/media/shaders/dflandscape/dflandscape.vs.glsl", GL_VERTEX_SHADER);
+        shader.fs = sb7::shader::load("../bin/media/shaders/dflandscape/dflandscape.fs.glsl", GL_FRAGMENT_SHADER);
 
         glDeleteProgram(sdf_program);
 

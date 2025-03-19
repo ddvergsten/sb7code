@@ -452,10 +452,10 @@ void packetrender_app::startup()
     stream.DrawArrays(GL_TRIANGLE_STRIP, 0, 4, 1, 0);
 
     sb7::object object;
-    object.load("media/objects/sphere.sbm");
+    object.load("../bin/media/objects/sphere.sbm");
 
-    shaders[0] = sb7::shader::load("media/shaders/blinnphong/blinnphong.vs.glsl", GL_VERTEX_SHADER);
-    shaders[1] = sb7::shader::load("media/shaders/blinnphong/blinnphong.fs.glsl", GL_FRAGMENT_SHADER);
+    shaders[0] = sb7::shader::load("../bin/media/shaders/blinnphong/blinnphong.vs.glsl", GL_VERTEX_SHADER);
+    shaders[1] = sb7::shader::load("../bin/media/shaders/blinnphong/blinnphong.fs.glsl", GL_FRAGMENT_SHADER);
 
     program = sb7::program::link_from_shaders(shaders, 2, true);
 

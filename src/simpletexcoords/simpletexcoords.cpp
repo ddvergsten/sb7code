@@ -80,9 +80,9 @@ protected:
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
-        tex_object[1] = sb7::ktx::file::load("media/textures/pattern1.ktx");
+        tex_object[1] = sb7::ktx::file::load("../bin/media/textures/pattern1.ktx");
 
-        object.load("media/objects/torus_nrms_tc.sbm");
+        object.load("../bin/media/objects/torus_nrms_tc.sbm");
 
         load_shaders();
 
@@ -128,8 +128,8 @@ protected:
 
         GLuint vs, fs;
 
-        vs = sb7::shader::load("media/shaders/simpletexcoords/render.vs.glsl", GL_VERTEX_SHADER);
-        fs = sb7::shader::load("media/shaders/simpletexcoords/render.fs.glsl", GL_FRAGMENT_SHADER);
+        vs = sb7::shader::load("../bin/media/shaders/simpletexcoords/render.vs.glsl", GL_VERTEX_SHADER);
+        fs = sb7::shader::load("../bin/media/shaders/simpletexcoords/render.fs.glsl", GL_FRAGMENT_SHADER);
 
         render_prog = glCreateProgram();
         glAttachShader(render_prog, vs);

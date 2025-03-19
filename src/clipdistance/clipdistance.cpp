@@ -69,7 +69,7 @@ protected:
 
 void clipdistance_app::startup()
 {
-    object.load("media/objects/dragon.sbm");
+    object.load("../bin/media/objects/dragon.sbm");
 
     load_shaders();
 }
@@ -130,8 +130,8 @@ void clipdistance_app::load_shaders()
 
     GLuint shaders[] =
     {
-        sb7::shader::load("media/shaders/clipdistance/render.vs.glsl", GL_VERTEX_SHADER),
-        sb7::shader::load("media/shaders/clipdistance/render.fs.glsl", GL_FRAGMENT_SHADER)
+        sb7::shader::load("../bin/media/shaders/clipdistance/render.vs.glsl", GL_VERTEX_SHADER),
+        sb7::shader::load("../bin/media/shaders/clipdistance/render.fs.glsl", GL_FRAGMENT_SHADER)
     };
 
     render_program = sb7::program::link_from_shaders(shaders, 2, true);

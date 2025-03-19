@@ -114,7 +114,7 @@ void indirectmaterial_app::startup()
 
     load_shaders();
 
-    object.load("media/objects/asteroids.sbm");
+    object.load("../bin/media/objects/asteroids.sbm");
 
     glGenBuffers(1, &indirect_draw_buffer);
     glBindBuffer(GL_DRAW_INDIRECT_BUFFER, indirect_draw_buffer);
@@ -272,8 +272,8 @@ void indirectmaterial_app::load_shaders()
 {
     GLuint shaders[2];
 
-    shaders[0] = sb7::shader::load("media/shaders/indirectmaterial/render.vs.glsl", GL_VERTEX_SHADER);
-    shaders[1] = sb7::shader::load("media/shaders/indirectmaterial/render.fs.glsl", GL_FRAGMENT_SHADER);
+    shaders[0] = sb7::shader::load("../bin/media/shaders/indirectmaterial/render.vs.glsl", GL_VERTEX_SHADER);
+    shaders[1] = sb7::shader::load("../bin/media/shaders/indirectmaterial/render.fs.glsl", GL_FRAGMENT_SHADER);
 
     if (render_program)
         glDeleteProgram(render_program);
