@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 4.1)
 
 project (superbible7)
 
@@ -113,6 +113,7 @@ set(EXAMPLES
   simpletexture
   singlepoint
   singletri
+  singletriDGD
   sparsetexture
   spinnycube
   springmass
